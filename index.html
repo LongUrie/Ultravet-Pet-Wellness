@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ultravet Pet Wellness x ลงเอย Production Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            /* ปรับโทนสีเป็น แบรนด์ Ultravet (ส้ม/น้ำเงินกรมท่า) */
+            --brand-orange: #E67E22; 
+            --brand-light-orange: #FEF5E7;
+            --brand-dark: #2C3E50;
+            --brand-accent: #D35400;
+            --text-main: #333333;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f7f9fa;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Cute Navigation Decor */
+        .top-decor {
+            height: 8px;
+            background: repeating-linear-gradient(45deg, var(--brand-orange), var(--brand-orange) 10px, var(--brand-dark) 10px, var(--brand-dark) 20px);
+        }
+
+        /* Hero Section */
+        header {
+            background-color: var(--brand-light-orange);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        header::after {
+            content: "\f1b0";
+            font-family: "Font Awesome 5 Free"; font-weight: 900;
+            position: absolute; bottom: -20px; right: 5%;
+            font-size: 120px; color: rgba(230, 126, 34, 0.1);
+        }
+
+        header h1 { color: var(--brand-orange); font-size: 2.2rem; margin-top: 0; margin-bottom: 10px; line-height: 1.3; }
+        header p { font-size: 1.1rem; color: var(--brand-dark); margin-bottom: 5px; }
+
+        /* Container Limit for PC */
+        .container { 
+            width: 100%; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+
+        /* Section Cards */
+        section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 35px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #eef2f5;
+        }
+
+        h2 {
+            display: flex; align-items: center;
+            color: var(--brand-orange); font-size: 1.6rem;
+            margin-top: 0; margin-bottom: 25px;
+        }
+
+        h2 i { margin-right: 15px; color: var(--brand-dark); font-size: 1.5rem; }
+
+        /* Flex & Grid Layouts for PC */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+        /* Concept Cards */
+        .concept-item {
+            background: var(--brand-light-orange);
+            padding: 30px 20px; border-radius: 15px;
+            text-align: center; border: 2px solid var(--white);
+            transition: transform 0.3s;
+        }
+        .concept-item:hover { transform: translateY(-5px); }
+        .concept-item b { color: var(--brand-orange); display: block; margin-bottom: 10px; font-size: 1.2rem; }
+        
+        /* Roadmap Steps */
+        .step {
+            padding: 25px; border-radius: 15px;
+            background: #fff; border-top: 5px solid var(--brand-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
+        }
+        .step .month { font-weight: bold; color: var(--brand-orange); font-size: 1.2rem; margin-bottom: 10px; }
+
+        /* Pricing Packages (Side by Side on PC) */
+        .packages-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .package-container section { margin-bottom: 0; padding: 0; border: none; box-shadow: none; height: 100%; display: flex; flex-direction: column; }
+        .package-card {
+            background: linear-gradient(135deg, var(--brand-orange), var(--brand-accent));
+            color: white; border-radius: 20px 20px 0 0; padding: 30px 20px; text-align: center;
+        }
+        .package-content {
+            padding: 30px 25px; background: var(--white); border-radius: 0 0 20px 20px; 
+            border: 1px solid #eef2f5; border-top: none; flex-grow: 1;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+        .price { font-size: 2.5rem; font-weight: bold; margin: 10px 0; }
+
+        /* Tables - Full width on PC */
+        .table-wrapper { border-radius: 10px; border: 1px solid #eee; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 0; }
+        th { background: var(--brand-orange); color: white; padding: 15px; text-align: left; font-size: 1.05rem; }
+        td { padding: 15px; border-bottom: 1px solid #eee; vertical-align: top; font-size: 1rem; }
+        tr:hover td { background-color: #FEF9F4; }
+
+        /* Case Studies & Info Bubbles */
+        .case-bubble {
+            background: #fdfdfd; padding: 25px; border-radius: 15px;
+            border-left: 5px solid var(--brand-dark);
+            height: 100%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .info-bubble {
+            background: var(--brand-light-orange); padding: 25px; border-radius: 15px;
+            margin-bottom: 20px; border-left: 5px solid var(--brand-orange);
+        }
+
+        /* Lists */
+        ul.custom-list { list-style: none; padding: 0; margin: 0; }
+        ul.custom-list > li { margin-bottom: 20px; display: flex; align-items: flex-start; }
+        ul.custom-list li i { color: var(--brand-dark); margin-top: 5px; margin-right: 15px; font-size: 1.3rem; }
+        ul.custom-list ul { margin-top: 10px; margin-bottom: 0; padding-left: 20px; color: #555; }
+        ul.custom-list ul li { margin-bottom: 5px; list-style-type: disc; }
+
+        /* Footer CTA */
+        .cta-box {
+            background: var(--brand-light-orange); padding: 40px; border-radius: 20px;
+            border: 2px dashed var(--brand-orange);
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .cta-content { flex: 1; }
+        .cta-contact { flex: 0 0 300px; text-align: center; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        
+        .cta-box h2 { margin-bottom: 15px; margin-top: 0; }
+        .process-box { background: #fff; padding: 20px; border-radius: 10px; margin: 20px 0 0 0; }
+        .process-box ol { padding-left: 20px; margin-bottom: 0; margin-top: 10px; }
+        .process-box ol li { margin-bottom: 8px; }
+
+        .btn-call {
+            background: var(--brand-orange); color: white;
+            padding: 15px 25px; border-radius: 30px;
+            text-decoration: none; font-weight: bold; display: inline-block;
+            width: 100%; text-align: center; margin-top: 15px; font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
+            transition: all 0.3s;
+        }
+        .btn-call:hover { background: var(--brand-accent); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(230, 126, 34, 0.4); }
+
+        footer { text-align: center; padding: 30px; color: #999; font-size: 0.95rem; }
+
+        /* Responsive Fallback */
+        @media (max-width: 992px) {
+            .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .packages-wrapper { grid-template-columns: 1fr; }
+            .cta-box { flex-direction: column; text-align: center; }
+            .cta-contact { width: 100%; }
+        }
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-decor"></div>
+
+    <header>
+        <h1><i class="fas fa-paw"></i> แผนกลยุทธ์ Social Media Marketing<br> Ultravet Pet Wellness </h1>
+        <p><strong>ยกระดับภาพลักษณ์แบรนด์ - "ภาพต้องปัง แอดต้องเข้าเป้า!"</strong></p>
+        <p style="margin-top: 20px; font-size: 1rem; color: #888;">จัดทำโดย: ลงเอย Production Agency</p>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2><i class="fas fa-bullseye"></i> เป้าหมายและจุดแข็งแบรนด์ (Brand Strengths & Goals)</h2>
+            <div class="grid-2" style="margin-bottom: 25px;">
+                <div class="concept-item">
+                    <i class="fas fa-heart" style="font-size: 2.5rem; color: var(--brand-orange); margin-bottom: 15px;"></i>
+                    <b>จุดแข็งของ Ultravet</b>
+                    <p>คอนเทนต์น้องหมาแมวน่ารักดึงดูดใจ มีบริการครบวงจร (วัคซีน, ผ่าตัด, สปา, โรงแรม) และมี 2 สาขา (บางนา, ราชพฤกษ์) รองรับลูกค้ากว้าง</p>
+                </div>
+                <div class="concept-item">
+                    <i class="fas fa-rocket" style="font-size: 2.5rem; color: var(--brand-dark); margin-bottom: 15px;"></i>
+                    <b>โอกาสในการพัฒนา</b>
+                    <p>จัดระเบียบ Professional Branding สร้างความน่าเชื่อถือ พร้อมการยิงแอดแบบ Local Targeting ดึงคนในพื้นที่มาใช้บริการที่สาขา</p>
+                </div>
+            </div>
+            <div class="info-bubble">
+                <div class="grid-3">
+                    <div>
+                        <p style="margin-top:0;"><strong><i class="fas fa-shield-alt" style="color: var(--brand-dark);"></i> Brand Trust:</strong><br>สร้างความน่าเชื่อถือภาพลักษณ์ "สัตวแพทย์ผู้เชี่ยวชาญ"</p>
+                    </div>
+                    <div>
+                        <p style="margin-top:0;"><strong><i class="fas fa-users" style="color: var(--brand-dark);"></i> Engagement:</strong><br>สร้างชุมชนคนรักสัตว์ เข้าถึงอารมณ์ (Emotional Connection)</p>
+                    </div>
+                    <div>
+                        <p style="margin-top:0; margin-bottom:0;"><strong><i class="fas fa-map-marked-alt" style="color: var(--brand-dark);"></i> Conversion:</strong><br>กระตุ้นการจองคิวเข้ารับบริการจริง ทั้งบางนาและราชพฤกษ์</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="packages-wrapper">
+            <div class="package-container">
+                <section>
+                    <div class="package-card">
+                        <p style="margin: 0; font-weight: 300; font-size: 1.2rem;">Basic Package</p>
+                        <div class="price">18,990 <small style="font-size: 1.2rem; font-weight: normal;">THB / 1 Mo.</small></div>
+                        <p style="font-size: 0.95rem; margin:0; opacity: 0.9;">(ไม่รวม VAT 7% และ งบโฆษณาแยกต่างหาก)</p>
+                    </div>
+                    <div class="package-content">
+                        <ul class="custom-list">
+                            <li>
+                                <i class="fas fa-lightbulb"></i> 
+                                <div><strong>Strategic Planning:</strong><br>วางแผนคอนเทนต์ วิเคราะห์กลุ่มเป้าหมาย Theme ประจำเดือน (เช่น วัคซีนเด็ก, ตรวจ DNA)</div>
+                            </li>
+                            <li>
+                                <i class="fas fa-images"></i> 
+                                <div style="width: 100%;"><strong>Monthly Asset Output:</strong> 
+                                    <ul>
+                                        <li>กราฟิก 2 ภาพ (Single Images)</li>
+                                        <li>อัลบั้ม 2 โพสต์ (Photo Albums)</li>
+                                        <li>วิดีโอสั้น 1 คลิป (Short Video / ตัดต่อจากไฟล์ลูกค้า)</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-pie"></i> 
+                                <div><strong>Campaign Management:</strong><br>ดูแลการยิงแอดโฆษณา (Ads Management) เจาะพื้นที่ รัศมีรอบสาขา และให้คำปรึกษาสรุปผลรายเดือน</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="package-container">
+                <section>
+                    <div class="package-card" style="background: linear-gradient(135deg, var(--brand-dark), #1A252F);">
+                        <p style="margin: 0; font-weight: 300; font-size: 1.2rem;">Standard Package</p>
+                        <div class="price">56,970 <small style="font-size: 1.2rem; font-weight: normal;">THB / 3 Mo.</small></div>
+                        <p style="font-size: 0.95rem; margin:0; opacity: 0.9;">(ไม่รวม VAT 7% และ งบโฆษณาแยกต่างหาก)</p>
+                    </div>
+                    <div class="package-content">
+                        <ul class="custom-list">
+                            <li>
+                                <i class="fas fa-lightbulb"></i> 
+                                <div><strong>Strategic Planning:</strong><br>วางแผนกลยุทธ์ระยะยาว 3 เดือน เจาะลึกแคมเปญต่อเนื่องเพื่อสร้าง Brand Awareness และ Conversion</div>
+                            </li>
+                            <li>
+                                <i class="fas fa-images"></i> 
+                                <div style="width: 100%;"><strong>Total Asset Output (3 Months):</strong> 
+                                    <ul>
+                                        <li>กราฟิก 6 ภาพ (Single Images)</li>
+                                        <li>อัลบั้ม 6 โพสต์ (Photo Albums)</li>
+                                        <li>วิดีโอสั้น 3 คลิป (Short Videos)</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-pie"></i> 
+                                <div><strong>Campaign Management:</strong><br>บริหารแอดเจาะพื้นที่ระยะยาว ปรับแผนรายเดือนตาม Data-Driven วิเคราะห์คู่แข่งในพื้นที่ต่อเนื่อง</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <section>
+            <h2><i class="fas fa-layer-group"></i> รูปแบบสื่อที่จะใช้ทำการตลาด (Content Formats)</h2>
+            <div class="grid-3" style="margin-bottom: 25px;">
+                <div class="step" style="border-top-color: var(--brand-dark);">
+                    <div class="month" style="font-size: 1.1rem; color: var(--brand-dark);"><i class="fas fa-image"></i> ภาพเดี่ยว (Single Image)</div>
+                    <p>โปสเตอร์โปรโมชั่นหลัก (เช่น ตรวจสุขภาพประจำปี) และ โควทความรู้จากคุณหมอ (เช่น ทำไมต้องทำหมัน?) เพื่อสร้าง Trust</p>
+                </div>
+                <div class="step" style="border-top-color: var(--brand-dark);">
+                    <div class="month" style="font-size: 1.1rem; color: var(--brand-dark);"><i class="fas fa-images"></i> อัลบั้ม (Photo Album)</div>
+                    <p>โพสต์เล่าเรื่องเพื่อดันค่า Engagement เช่น รีวิว Before/After อาบน้ำตัดขนสปา หรือ พาทัวร์โรงแรมสัตว์เลี้ยง (Pet Hotel)</p>
+                </div>
+                <div class="step" style="border-top-color: var(--brand-dark);">
+                    <div class="month" style="font-size: 1.1rem; color: var(--brand-dark);"><i class="fas fa-play-circle"></i> คลิปสั้น (Short Video)</div>
+                    <p>ตัดต่อคลิปสั้น (Reels/TikTok) นำเสนอบรรยากาศน้องๆ ทำสปา หรือความน่ารักตอนตรวจกับคุณหมอ ปิดท้ายด้วย CTA ให้ทัก Inbox</p>         
+                </div>
+            </div>
+        </section>
+
+	<div style="display: flex; flex-direction: column; gap: 30px; margin-bottom: 30px; margin-top: 20px;">
+            <div style="background: var(--white); border-radius: 20px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #eef2f5;">
+                <img src="1.png" alt="ตัวอย่างภาพเดี่ยวและอัลบั้ม" style="width: 100%; border-radius: 12px; display: block;">
+            </div>
+            
+            <div style="background: var(--white); border-radius: 20px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #eef2f5;">
+                <img src="2.png" alt="ตัวอย่างคอนเทนต์วิดีโอสั้น" style="width: 100%; border-radius: 12px; display: block;">
+            </div>
+        </div>
+
+        <section>
+            <h2><i class="fas fa-calendar-check"></i> 30-Day Workflow (ระยะเวลาการทำงาน)</h2>
+            <div class="grid-4">
+                <div class="info-bubble" style="margin-bottom: 0;">
+                    <strong style="font-size: 1.1rem; display: block; margin-bottom: 10px;">Phase 1<br><small>(Day 1-3)</small></strong>
+                    รับบรีฟ สรุปกลยุทธ์ และจัดทำ Content Calendar ประจำเดือน
+                </div>
+                <div class="info-bubble" style="margin-bottom: 0;">
+                    <strong style="font-size: 1.1rem; display: block; margin-bottom: 10px;">Phase 2<br><small>(Day 4-7)</small></strong>
+                    ส่ง Draft คอนเทนต์ชุดแรกให้ลูกค้าตรวจสอบความถูกต้อง
+                </div>
+                <div class="info-bubble" style="margin-bottom: 0;">
+                    <strong style="font-size: 1.1rem; display: block; margin-bottom: 10px;">Phase 3<br><small>(Day 8-30)</small></strong>
+                    เริ่มโพสต์ตามตาราง ดูแลยิงแอด และมอนิเตอร์ผลแบบ Real-time
+                </div>
+                <div class="info-bubble" style="margin-bottom: 0;">
+                    <strong style="font-size: 1.1rem; display: block; margin-bottom: 10px;">Phase 4<br><small>(สิ้นเดือน)</small></strong>
+                    สรุปผล ส่งรายงาน Monthly Report พร้อมวางแผนเดือนถัดไป
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-handshake"></i> Collaboration Matrix (การทำงานร่วมกัน)</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">สิ่งที่ “ลงเอย” จัดการให้</th>
+                            <th style="width: 50%;">สิ่งที่ “Ultravet” เตรียมให้เรา</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>- วางแผนกลยุทธ์และคิด Theme</td>
+                            <td>- ไฟล์ดิบภาพถ่ายและวิดีโอคลิป (แพ็คเกจนี้ไม่รวมออกกอง)</td>
+                        </tr>
+                        <tr>
+                            <td>- ออกแบบกราฟิก / ตัดต่อวิดีโอ / เขียนแคปชั่น</td>
+                            <td>- ข้อมูลโปรโมชั่น / บริการ / ความรู้เฉพาะทางจากสัตวแพทย์</td>
+                        </tr>
+                        <tr>
+                            <td>- ตั้งค่าและปรับแต่งโฆษณา (Ads Optimization) แบบเจาะพื้นที่</td>
+                            <td>- งบประมาณสำหรับยิงโฆษณา Facebook (Ads Budget)</td>
+                        </tr>
+                        <tr>
+                            <td>- วัดผลและ รายงาน (Monthly Report)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+	<section>
+            <h2><i class="fas fa-chart-line"></i> แผนบริหารจัดการโฆษณา (Ads Management Strategy)</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 25px;">ดูแลการยิงแอดเจาะพื้นที่อย่างแม่นยำ โปร่งใส100% พร้อมวางโครงสร้างเพื่อพาลูกค้าไปสู่การจองคิวเข้าใช้บริการ</p>
+
+            <h3 style="color: var(--brand-dark); font-size: 1.25rem; margin-bottom: 15px;"><i class="fas fa-cogs"></i> 4 ขั้นตอนการทำงานของทีมโฆษณา</h3>
+            <div class="grid-4" style="margin-bottom: 35px;">
+                <div class="info-bubble" style="margin-bottom: 0; padding: 20px;">
+                    <strong style="color: var(--brand-orange); font-size: 1.1rem; display: block; margin-bottom: 5px;">1. วางแผน (Planning)</strong>
+                    กำหนดกลุ่มลูกค้าเป้าหมาย, พื้นที่ (รัศมีรอบสาขาบางนา/ราชพฤกษ์), ช่วงอายุ และวางแผนงบประมาณยิงแอดต่อวัน
+                </div>
+                <div class="info-bubble" style="margin-bottom: 0; padding: 20px;">
+                    <strong style="color: var(--brand-orange); font-size: 1.1rem; display: block; margin-bottom: 5px;">2. เตรียมบัญชี (Setup)</strong>
+                    เติมงบเข้าระบบโฆษณาโดยตรง (สามารถขอใบกำกับภาษีจาก FB ได้)
+                </div>
+                <div class="info-bubble" style="margin-bottom: 0; padding: 20px;">
+                    <strong style="color: var(--brand-orange); font-size: 1.1rem; display: block; margin-bottom: 5px;">3. ระยะทดสอบ (Testing)</strong>
+                    14 วันแรก AI จะเรียนรู้เพื่อหาคอนเทนต์ที่ใช่ต่อเป้าหมายที่สุด 
+                </div>
+                <div class="info-bubble" style="margin-bottom: 0; padding: 20px;">
+                    <strong style="color: var(--brand-orange); font-size: 1.1rem; display: block; margin-bottom: 5px;">4. รายงานผล (Reporting)</strong>
+                    รายงานผลทุก 15 วัน วิเคราะห์ผลลัพธ์จากคอนเทนต์ที่ทำผลงานได้ดี เพื่อนำมาปรับปรุงและต่อยอดในเดือนถัดไป
+                </div>
+            </div>
+
+            <h3 style="color: var(--brand-dark); font-size: 1.25rem; margin-bottom: 15px;"><i class="fas fa-route"></i> Customer Journey (พฤติกรรมลูกค้าสู่การจองคิว)</h3>
+            <div class="grid-4" style="margin-bottom: 35px;">
+                <div class="concept-item" style="border-top: 4px solid var(--brand-orange); background: var(--white); padding: 20px;">
+                    <i class="fas fa-bullhorn" style="font-size: 2rem; color: var(--brand-orange); margin-bottom: 10px;"></i>
+                    <b>1. Awareness</b>
+                    <p style="font-size: 0.95rem; margin:0; color: #555;">เห็นโฆษณา FB/IG (คลิปบริการ, ให้ความรู้) <br><br><i class="fas fa-arrow-down" style="color: #ccc;"></i><br><strong>ลูกค้าหยุด		ดูโฆษณา</strong></p>
+                </div>
+                <div class="concept-item" style="border-top: 4px solid #E67E22; background: var(--white); padding: 20px;">
+                    <i class="fas fa-hand-pointer" style="font-size: 2rem; color: #E67E22; margin-bottom: 10px;"></i>
+                    <b>2. Engagement</b>
+                    <p style="font-size: 0.95rem; margin:0; color: #555;">ลูกค้ามีความสนใจ และคลิกโฆษณา <br><br><i class="fas fa-arrow-down" style="color: #ccc;"></i><br><strong>ทักสอบถามผ่าน 			Inbox</strong></p>
+                </div>
+                <div class="concept-item" style="border-top: 4px solid var(--brand-dark); background: var(--white); padding: 20px;">
+                    <i class="fas fa-comments" style="font-size: 2rem; color: var(--brand-dark); margin-bottom: 10px;"></i>
+                    <b>3. Lead</b>
+                    <p style="font-size: 0.95rem; margin:0; color: #555;">แอดมินตอบแชท ให้ข้อมูลเบื้องต้น (บริการ/ราคา) <br><br><i class="fas fa-arrow-down" style="color: #ccc;"></i><br><strong>แอดมิ		นชวนคุยปัญหา รายละเอียดขั้นตอนการเข้ารับบริการ เพื่อให้ลูกค้าเกิดความมั่นใจ</strong></p>
+                </div>
+                <div class="concept-item" style="border-top: 4px solid #27AE60; background: var(--white); padding: 20px;">
+                    <i class="fas fa-calendar-check" style="font-size: 2rem; color: #27AE60; margin-bottom: 10px;"></i>
+                    <b>4. Conversion</b>
+                    <p style="font-size: 0.95rem; margin:0; color: #555;">พูดคุยรายละเอียดเชิงลึก แจ้งโปรโมชั่นเพื่อดึงดูดการตัดสินใจ <br><br><i class="fas fa-arrow-down" style="color: #ccc;"></i><br>				<strong>นัดหมาย / จองคิวเข้าสาขา</strong></p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--brand-dark); font-size: 1.25rem; margin-bottom: 15px;"><i class="fas fa-money-bill-wave"></i> เปรียบเทียบประมาณการงบโฆษณา (แยกจากค่าบริการแพ็คเกจ)</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">ผลลัพธ์ที่คาดหวัง</th>
+                            <th style="width: 37.5%; background: var(--brand-dark);">งบ 500 บาท/วัน (15,000 บาท/เดือน)</th>
+                            <th style="width: 37.5%;">งบ 1,000 บาท/วัน (30,000 บาท/เดือน)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>การเข้าถึง (Reach)</strong></td>
+                            <td>20,000 - 35,000 คน</td>
+                            <td>45,000 - 80,000 คน</td>
+                        </tr>
+                        <tr>
+                            <td><strong>คลิกโฆษณา (Click)</strong></td>
+                            <td>600 - 1,000 คลิก</td>
+                            <td>1,300 - 2,500 คลิก</td>
+                        </tr>
+                        <tr>
+                            <td><strong>การมีส่วนร่วม (Engagement)</strong></td>
+                            <td>1,200 - 2,500 ครั้ง</td>
+                            <td>2,800 - 5,500 ครั้ง</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ทักแชท (Message)</strong></td>
+                            <td>60 - 90 แชท/เดือน <br><small style="color: #666;">(เฉลี่ย 2 - 3 แชท/วัน)</small></td>
+                            <td>120 - 180 แชท/เดือน <br><small style="color: #666;">(เฉลี่ย 4 - 6 แชท/วัน)</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: 0.85rem; color: #888; margin-top: 10px;">*หมายเหตุ: ตัวเลขเป็นการประมาณการเบื้องต้น อาจเปลี่ยนแปลงได้ตามคอนเทนต์ กลุ่มเป้าหมาย และสภาพตลาดในพื้นที่ ณ ขณะนั้น</p>
+        </section>
+
+        <div class="cta-box">
+            <div class="cta-content">
+                <h2 style="color: var(--brand-orange);"><i class="fas fa-chart-line"></i> ยกระดับแบรนด์ เพิ่มผู้ใช้บริการจริง</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 5px;"><strong>Strategic Plan + Premium Content + Local Targeting</strong></p>
+                <p style="font-size: 1.1rem; margin-top: 0;">ให้แบรนด์ของคุณเป็นที่จดจำและขายได้จริง เริ่มต้นกับเราวันนี้</p>
+                
+                <div class="process-box">
+                    <strong>การกำหนดกลุ่มเป้าหมาย (Audience Targeting):</strong>
+                    <ol>
+                        <li>โฟกัส Pet Parents โซนบางนาและราชพฤกษ์</li>
+                        <li>ยิงแอดเจาะพื้นที่ (Radius Targeting) รัศมีรอบสาขา 2 แห่ง</li>
+                        <li>ผู้ที่เลี้ยงสุนัข แมว และสนใจเรื่อง Pet Wellness ในพื้นที่โดยรอบ</li>
+                    </ol>
+                </div>
+            </div>
+                              
+	<div class="cta-contact">
+                <div style="font-size: 1.2rem; margin-bottom: 15px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="Line QR Code" style="width: 120px; height: 120px; margin-bottom: 15px; opacity: 0.8;">
+                    <p style="margin-bottom: 5px; color: var(--text-main);"><strong>ติดต่อ: คุณกรอง (CMO)</strong></p>
+                    <p style="margin-top: 0; color: var(--brand-orange); font-weight: bold; font-size: 1.4rem;"><i class="fas fa-phone-alt"></i> 081-424-9654</p>
+                </div>
+                <a href="tel:0814249654" class="btn-call">โทรติดต่อสอบถาม <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>จัดทำโดย <strong>ลงเอย Production Agency</strong> <br> แผนงานการตลาดออนไลน์สำหรับ <strong>Ultravet Pet Wellness</strong></p>
+    </footer>
+
+</body>
+</html>
